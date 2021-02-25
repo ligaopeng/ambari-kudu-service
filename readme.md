@@ -1,11 +1,11 @@
 ambari集成kudu服务组件
 ====
 ## 实现目标
-当前最新ambari版本2.6.5.0及HDP3.1.5.0已不再发布维护和更新，由cloudera公司发布的CDP替代，CDP属于收费项目，因此推出基于ambari服务管理平台的kudu服务组件。
+当前最新ambari版本2.7.5.0及HDP3.1.5.0已不再发布维护和更新，由cloudera公司发布的CDP替代，CDP属于收费项目，因此推出基于ambari服务管理平台的kudu服务组件。
 ## 关联项目
 [CDH IMPALA on ambari](https://github.com/ligaopeng/ambari-impala-service) <br>
 ## 安装前准备
-#### 1.配置cdh5或cdh6镜像源：
+#### 1.配置cdh6镜像源：
 
 
 CDH6镜像源：
