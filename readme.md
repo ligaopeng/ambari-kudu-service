@@ -3,14 +3,11 @@ ambari集成kudu服务组件
 ## 实现目标
 当前最新ambari版本2.6.5.0及HDP3.1.5.0已不再发布维护和更新，由cloudera公司发布的CDP替代，CDP属于收费项目，因此推出基于ambari服务管理平台的kudu服务组件。
 ## 关联项目
-[CDH IMPALA on ambari](https://github.com/luckes-yang/ambari-impala-service) <br>
+[CDH IMPALA on ambari](https://github.com/ligaopeng/ambari-impala-service) <br>
 ## 安装前准备
 #### 1.配置cdh5或cdh6镜像源：
-CDH5镜像源：
-```shell
-# cdh5适配kudu版本为cdh-kudu1.7.0
-wget -P /etc/yum.repos.d/ https://archive.cloudera.com/cdh5/redhat/7/x86_64/cdh/cloudera-cdh5.repo
-```
+
+
 CDH6镜像源：
 ```shell
 # cdh6适配kudu版本为cdh-kudu1.10.0
@@ -21,9 +18,10 @@ baseurl=https://archive.cloudera.com/cdh6/6.3.2/redhat7/yum/
 gpgkey =https://archive.cloudera.com/cdh6/6.3.2/redhat7/yum/RPM-GPG-KEY-cloudera    
 gpgcheck = 1" > /etc/yum.repos.d/cloudera-cdh6.3.2.repo
 ```
-#### 2.配置cdh5镜像源：
+#### 2.配置cdh6镜像源：
 
-*无网络环境或网络环境差的情况下，可以将cdh5镜像源制作成本地镜像源进行安装*
+*无网络环境或网络环境差的情况下，可以将cdh6镜像源制作成本地镜像源进行安装*
+
 ## 安装步骤
 #### 1.查看当前HDP版本
 ```shell
@@ -32,13 +30,14 @@ echo $VERSION
 ```
 #### 2.下载并解压release版本插件包
 ```shell
-git clone https://github.com/luckes-yang/ambari-kudu-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/KUDU
+git clone git@github.com:ligaopeng/ambari-kudu-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/KUDU
 ```
 #### 3.重启ambari-server
 ```shell
 ambari-server restart
 ```
 *tserver webserver port默认端口为8050，和yarn组件的ResourceManager端口冲突，导致无法启动，本项目中将其修改为50800*
+
 #### 4.在ambari web ui进行组件安装
 略
 #### 5.效果截图
